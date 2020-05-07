@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <title>Conference Registrations</title>
+        <style>
+body {
+  background-image: url('q1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .column {
+                width: 100% !important;
+                margin: 16px;
+            }
+
+            .full-row {
+                width: 100%;
+            }
+
+            .form-label {
+            }
+
+            .form-text-field {
+
+            }
+
+            .form-select {
+
+            }
+
+            .form-radio-button {
+
+            }
+
+            .form-checkbox {
+
+            }
+
+            .form-textarea {
+
+            }
+        </style>
+    </head>
+    <body>
+<h2><center>REGISTRATION FORM 2020</center></h2>
+        <div class="container">
+            <form onsubmit="return validate()">
+                <div class="column">
+                    <label class="form-label">Name:</label>
+                    <input id="name" class="text-field" type="text" />
+                </div>
+                <div class="column">
+                    <label class="form-label">Paper ID:</label>
+                    <input id="paperId" class="form-text-field" type="text" />
+                </div>
+                <div class="column">
+                    <label class="form-label">Profession:</label>
+                    <select id="profession" class="form-select">
+                        <option>--SELECT--</option>
+                        <option value="academia">Academia</option>
+                        <option value="research">Research</option>
+                        <option value="scholar">Scholar</option>
+                        <option value="industry">Industry</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <label class="form-label">Organization:</label>
+                    <input id="organization" class="form-text-field" type="text" />
+                </div>
+                <div class="column">
+                    <label class="form-label">Gender:</label>
+                    <input id="male" name="gender" class="form-radio-button" type="radio" value="male" />
+                    <label for="male">Male</label>
+                    <input id="female" name="gender" class="form-radio-button" type="radio" value="female" />
+                    <label for="female">Female</label>
+                </div>
+                <div class="column">
+                    <label class="form-label">Qualification:</label>
+
+                    <input id="ug" class="form-checkbox" type="checkbox" />
+                    <label for="ug">UG</label>
+
+                    <input id="pg" class="form-checkbox" type="checkbox" />
+                    <label for="pg">PG</label>
+
+                    <input id="phd" class="form-checkbox" type="checkbox" />
+                    <label for="phd">PhD</label>
+                </div>
+                <div class="full-width">
+                    <label class="form-label">Address:</label>
+                    <textarea id="address" class="form-textarea"></textarea>
+                </div>
+                <div class="column">
+                    <label class="form-label">PIN Code:</label>
+                    <input id="pin" class="form-text-field" type="text" />
+                </div>
+                <div class="column">
+                    <label class="form-label">Email ID:</label>
+                    <input id="email" class="form-text-field" type="text" />
+                </div>
+                <div class="column">
+                    <label class="form-label">Phone Number:</label>
+                    <input id="phoneNumber" class="form-text-field" type="text" />
+                </div>
+                <div class="column">
+                    <label class="form-label">Accomodation Needed?</label>
+                    <input id="yes" name="accomodation" class="form-radio-button" type="radio" value="yes" />
+                    <label for="yes">Yes</label>
+                    <input id="no" name="accomodation" class="form-radio-button" type="radio" value="no" />
+                    <label for="no">No</label>
+                </div>
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Clear"></td>
+            </form>
+        </div>
+
+        <script>
+            function validate() {
+                var nameElement = document.getElementById('name');
+                var paperIdElement = document.getElementById('paperId');
+                var professionElement = document.getElementById('profession');
+                var organizationElement = document.getElementById('organization');
+                var maleElement = document.getElementById('male');
+                var ugElement = document.getElementById('ug');
+                var pgElement = document.getElementById('pg');
+                var phdElement = document.getElementById('phd');
+                var addressElement = document.getElementById('address');
+                var pinElement = document.getElementById('pin');
+                var emailElement = document.getElementById('email');
+                var phoneNumberElement = document.getElementById('phoneNumber');
+                var accomodationElement = document.getElementById('yes');
+
+                // Name
+                var name = nameElement.value;
+                if (name.length < 3) {
+                    alert('The name should have more than three letters.');
+                    return false;
+                }
+                if (!name.match(/^[A-Za-z]+$/)) {
+                    alert('The Name is Invalid/Avoid leaving space or using special char.');
+                    return false;
+                }
+
+                // Paper ID
+                var paperId = paperIdElement.value;
+                if (paperId.length != 10) {
+                    alert('Exact 10 Alphanumeric code Needed(Paper ID).');
+                    return false;
+                }
+                if (!paperId.match(/^[A-Za-z0-9]+$/)) {
+                    alert('Tthis Paper ID is Invalid.');
+                    return false;
+                }
+
+                // Organization
+                var organization = organizationElement.value;
+                if (organization.length == 0) {
+                    alert('Please fill the Organization.');
+                    return false;
+                }
+                if (!organization.match(/^[A-Za-z]+$/)) {
+                    alert('The specified organization is invalid.');
+                    return false;
+                }
+
+
+                // Address
+                var address = addressElement.value;
+                if (address.length == 0) {
+                    alert('Please Fill the address.');
+                    return false;
+                }
+
+                // PIN
+                var pin = pinElement.value;
+                if (pin.length != 6) {
+                    alert('The PIN code should have only 6 digits not more than that.');
+                    return false;
+                }
+                if (!pin.match(/^[0-9]+$/)) {
+                    alert('This PIN code is invalid.');
+                    return false;
+                }
+
+                // Email
+                var email = emailElement.value;
+                if (email.length == 0) {
+                    alert('Please fill Email ID.');
+                    return false;
+                }
+                if (!email.match(/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+$/)) {
+                    alert('This Email ID is invalid.');
+                    return false;
+                }
+
+                // Phone Number
+                var phoneNumber = phoneNumberElement.value;
+                if (phoneNumber.length != 10) {
+                    alert('The phone number should have exactly 10 digits.');
+                    return false;
+                }
+                if (!phoneNumber.match(/^[0-9]+$/)) {
+                    alert('This phone number is invalid,Please check.');
+                    return false;
+                }
+
+                alert('This Form was Successfully Submitted,ALL THE BEST.');
+
+                return false;
+            }
+        </script>
+<h4><center>For any Queries contact 9738324173</center></h4>
+    </body>
+</html>
